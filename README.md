@@ -19,7 +19,7 @@ Análisis del uso de llamadas y mensajes de 4,000 clientes de una empresa de tel
 
 ## Alcance y evidencia disponible
 
-El notebook original registra **4,000 clientes, 40,000 eventos y 2 planes**. Solo se recibió ese notebook, con su código y salidas guardadas. Los CSV originales no están incluidos. La versión revisada corrige el procedimiento, pero **no se ejecutó con los datos fuente** y no presenta resultados nuevos como comprobados.
+El notebook original registra **4,000 clientes, 40,000 eventos y 2 planes**. Los resultados de este README provienen de las salidas del notebook original. Los CSV originales no están incluidos en el repositorio.
 
 | Fuente requerida | Contenido |
 |---|---|
@@ -47,7 +47,7 @@ El plan Básico representa **64.875%** de clientes y Premium **35.125%**. La med
 
 *Gráfico extraído del notebook original. Son frecuencias absolutas y hay más clientes Básico; no se usa para demostrar diferencias proporcionales entre planes.*
 
-## Correcciones de esta versión
+## Problemas detectados en el análisis original y ajustes propuestos
 
 - **Segmentación:** el original usaba límites de 50 y 200 pese a que el máximo era 15 llamadas y 17 mensajes. Con esos resultados, los 3,999 perfiles completos quedan en Bajo; el perfil sin métricas termina incorrectamente en Alto. La revisión usa las reglas descriptivas del ejercicio (5 y 10), con categoría explícita para ausencia de actividad observada.
 - **Fechas:** la salida muestra 40 registros en 2026, aunque la narrativa decía que no había años posteriores a 2024. El original sí los marcó posteriormente como nulos; la revisión conserva una bandera y contabiliza la incidencia.
@@ -80,3 +80,10 @@ No se midieron incrementos de ingresos, retención ni resultados de campañas. L
 Para consultar la evidencia, abre el README o el notebook histórico en GitHub. Para ejecutar el análisis revisado, coloca los tres CSV en `data/`, instala `python -m pip install -r requirements.txt` y abre el notebook con `jupyter notebook`. No se descargan datos automáticamente ni se generan datos sustitutos.
 
 Se comprobó la sintaxis y la lógica de segmentación con casos controlados, pero no el flujo completo sin los archivos fuente. Los originales recibidos no fueron modificados. No se verificó la licencia de las fuentes ni se les asigna una licencia abierta.
+
+## Limitaciones
+
+- Proyecto académico presentado como caso de análisis; no corresponde a un encargo para una empresa de telecomunicaciones real.
+- Las cifras son resultados históricos del notebook original. El notebook con los ajustes propuestos no se ha ejecutado con los datos fuente, porque los CSV no se incluyen.
+- La duración original sumaba todos los tipos de evento, por lo que no equivale a minutos de llamadas validados.
+- No se midieron incrementos de ingresos, retención ni resultados de campañas; los segmentos propuestos son hipótesis.
