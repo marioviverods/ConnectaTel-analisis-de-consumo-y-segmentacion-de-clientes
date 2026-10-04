@@ -1,12 +1,21 @@
 # ConnectaTel: análisis de consumo y segmentación de clientes
 
-**Mario Alberto Vivero | Python · pandas · NumPy · Matplotlib · Seaborn**
+**Mario Alberto Vivero Sahagún | Python · pandas · NumPy · Matplotlib · Seaborn**
 
-Proyecto académico sobre calidad de datos y comportamiento de clientes de una empresa de telecomunicaciones en Latinoamérica. El objetivo es construir perfiles de uso, identificar registros atípicos y evaluar qué información hace falta antes de recomendar cambios de plan.
+Análisis del uso de llamadas y mensajes de 4,000 clientes de una empresa de telecomunicaciones en Latinoamérica, y revisión de la calidad de los datos para segmentarlos.
 
 ## Pregunta de negocio
 
 ¿Cómo se distribuye el uso de llamadas y mensajes y qué tan confiables son los datos para segmentar clientes?
+
+## Hallazgo clave
+
+- **El plan Básico concentra a la mayoría de los clientes:** 64.9% frente a 35.1% del plan Premium.
+- **El uso por cliente es bajo:** la mediana es de 5 mensajes y 4 llamadas, con máximos de 17 y 15. La duración acumulada tiene una cola larga hacia valores altos (media de 23.32 contra mediana de 19.78).
+- **La segmentación original no se ajustaba a los datos:** sus límites de 50 y 200 quedaban muy por encima de los máximos observados, así que todos los clientes caían en la categoría "Bajo". El código revisado usa límites de 5 y 10.
+- **El 14.1% de los clientes no tiene una ciudad válida** (565 de 4,000 entre nulos y valores `?`).
+
+**Qué recomiendo:** verificar los registros extremos y la consistencia de las fechas antes de clasificar a un cliente como intensivo o proponer cambios de plan.
 
 ## Alcance y evidencia disponible
 
